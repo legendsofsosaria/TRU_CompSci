@@ -1,4 +1,5 @@
 
+import java.math.BigDecimal;
 /**
  * Elizabeth Gress T00738901
  * COMP 1231 Assignment 2
@@ -8,7 +9,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
 {
     private String bookCode;
     private String title;
-    private double price;
+    private BigDecimal price;
     private int genre;
     private String password;
     private boolean bookIsLocked;
@@ -19,7 +20,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
     }
     
     /* Parameterized constructor */
-    public Book(String bookCode, String title, double price, int genre)
+    public Book(String bookCode, String title, BigDecimal price, int genre)
     {
         this.bookCode = bookCode;
         this.title = title;
@@ -41,7 +42,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         /*Check if book is locked before allowing changes to book code */
         if(bookIsLocked)
         {
-            System.out.println("Record is locked! Book code cannot be updated.");
+            System.out.println("Record is locked! Book code cannot be updated.\n");
         }
         else
         {
@@ -61,7 +62,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         /*Check if book is locked before allowing changes to title */
         if(bookIsLocked)
         {
-            System.out.println("Record is locked! Price cannot be updated.");
+            System.out.println("Record is locked! Price cannot be updated.\n");
         }
         else
         {
@@ -70,18 +71,18 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
     }
     
     /* Accessor for price */
-    public double getPrice()
+    public BigDecimal getPrice()
     {
         return price;
     }
     
     /* Mutator for price */
-    public void setPrice(double price)
+    public void setPrice(BigDecimal price)
     {
         /*Check if book is locked before allowing changes to price */
         if(bookIsLocked)
         {
-            System.out.println("Record is locked! Price cannot be updated.");
+            System.out.println("Record is locked! Price cannot be updated.\n");
         }
         else
         {
@@ -101,7 +102,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         /*Check if book is locked before allowing changes to genre */
         if(bookIsLocked)
         {
-            System.out.println("Record is locked! Genre cannot be updated.");
+            System.out.println("Record is locked! Genre cannot be updated.\n");
         } 
         else
         {
@@ -111,7 +112,7 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
             }
             else
             {
-                System.out.println("Invalid genre. Genre not set.");
+                System.out.println("Invalid genre. Genre not set.\n");
             }
         }
     }
@@ -140,11 +141,11 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         if (enteredPassword.equals(password))
         {
             bookIsLocked = true;
-            System.out.println("Book record is successfully locked.");
+            System.out.println("The book record is now locked.\n");
         }
         else
         {
-            System.out.println("Incorrect password. Book record not locked.");
+            System.out.println("Incorrect password. Book record not locked.\n");
         }
     }
     
@@ -154,11 +155,11 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         if (enteredPassword.equals(password))
         {
             bookIsLocked = false;
-            System.out.println("Book record is successfully unlocked.");
+            System.out.println("Book record is successfully unlocked.\n");
         }
         else
         {
-            System.out.println("Incorrect password. Book record not unlocked.");
+            System.out.println("Incorrect password. Book record not unlocked.\n");
         }
     }
     
@@ -181,6 +182,6 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
     /* Method to compare book objects */
     public int compareTo(Book otherBook)
     {
-        return Double.compare(this.price, otherBook.price);
+        return this.price.compareTo(otherBook.getPrice());
     }
 }
