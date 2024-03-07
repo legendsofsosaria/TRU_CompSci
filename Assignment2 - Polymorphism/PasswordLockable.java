@@ -1,6 +1,6 @@
 
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 2
  * 01/13/2024
  */

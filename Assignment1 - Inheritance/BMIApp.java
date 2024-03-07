@@ -1,6 +1,6 @@
 
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 1
  * 12/13/2023
  * Create a driver class named BMIApp with a single array reference of the MyBMI class. Since no user input is needed in the driver, 

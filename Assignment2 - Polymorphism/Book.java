@@ -1,7 +1,6 @@
 
-import java.math.BigDecimal;
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 2
  * 01/13/2024
  */
@@ -9,23 +8,27 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
 {
     private String bookCode;
     private String title;
-    private BigDecimal price;
+    private double price;
     private int genre;
     private String password;
     private boolean bookIsLocked;
     
     /* Default constructor */
     public Book()
-    {  
+    {
+        this.bookCode = null;
+        this.title = null;
+        this.price = 0;
+        this.genre = 0;  
     }
     
     /* Parameterized constructor */
-    public Book(String bookCode, String title, BigDecimal price, int genre)
+    public Book(String bookCode, String title, double price, int genre)
     {
-        this.bookCode = bookCode;
-        this.title = title;
-        this.price = price;
-        this.genre = genre;
+        setBookCode(bookCode);
+        setTitle(title);
+        setPrice(price);
+        setGenre(genre);
 
         bookIsLocked = false;
     }
@@ -71,13 +74,13 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
     }
     
     /* Accessor for price */
-    public BigDecimal getPrice()
+    public double getPrice()
     {
         return price;
     }
     
     /* Mutator for price */
-    public void setPrice(BigDecimal price)
+    public void setPrice(double price)
     {
         /*Check if book is locked before allowing changes to price */
         if(bookIsLocked)
@@ -86,7 +89,14 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
         }
         else
         {
-            this.price = price;
+            if (price >= 0)
+            {
+                this.price = price;
+            }
+            else
+            {
+                System.out.println("Invalid price.");
+            }
         }
     }
     
@@ -182,6 +192,6 @@ public class Book implements PasswordLockable, Genre, Comparable<Book>
     /* Method to compare book objects */
     public int compareTo(Book otherBook)
     {
-        return this.price.compareTo(otherBook.getPrice());
+        return Double.compare(this.price, otherBook.getPrice());
     }
 }

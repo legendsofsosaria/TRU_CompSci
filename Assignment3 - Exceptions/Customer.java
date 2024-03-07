@@ -1,6 +1,6 @@
 
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 3
  * 01/31/2024
  */
@@ -33,5 +33,10 @@ public class Customer
     public double getRating()
     {
         return rating;
+    }
+
+    public String toString()
+    {
+        return "Age: " + age + " Rating: " + rating;
     }
 }

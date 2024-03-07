@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 1
  * 12/06/2023
  * Calculates and analyzes a person's BMI using imperial units
@@ -13,6 +13,13 @@ public class ImperialUnit extends MyBMI
     private static final double UNDERWEIGHT_THRESHOLD = 18.5; 
     private static final double NORMAL_WEIGHT_THRESHOLD = 25.0;
     
+    /* Default constructor */
+    public ImperialUnit()
+    {
+        feet = 0;
+        inches = 0;
+    }
+
     /* Overloaded constructor */
     public ImperialUnit(String name, double weight, int feet, int inches)
     {

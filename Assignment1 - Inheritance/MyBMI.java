@@ -1,5 +1,5 @@
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 1
  * 11/22/2023
  * Parent class for BMI program. Takes name and weight of the user in kg. Contains abstract methods for analyzing and calculating BMI
@@ -9,7 +9,14 @@ public abstract class MyBMI
 {
     private String name;
     private double weight;
-        
+
+    /* Default constructor */
+    public MyBMI()
+    {
+        name = null;
+        weight = 0;
+    }
+
     /* Parameterized constructor */
     public MyBMI(String n, double w) 
     {

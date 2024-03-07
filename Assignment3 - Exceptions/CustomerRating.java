@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.*;
 
 /**
- * Elizabeth Gress T00738901
+ * Elizabeth House T00738901
  * COMP 1231 Assignment 3
  * 02/06/2024
  */
