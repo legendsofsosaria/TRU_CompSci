@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 /**
  * Elizabeth Gress T00738901
  * COMP 1231 Assignment 2
- * 01/13/2024
+ * 01/16/2024
  * Source for info on BigDecimal: https://www.geeksforgeeks.org/bigdecimal-class-java/
  */
 public class BookRecordApp
