@@ -1,32 +1,43 @@
 import javafx.application.Application; 
 import javafx.scene.Scene; 
-import javafx.scene.control.Button; 
 import javafx.scene.layout.*; 
-import javafx.event.ActionEvent; 
 import javafx.scene.shape.Circle; 
 import javafx.scene.control.*; 
 import javafx.stage.Stage; 
 import javafx.scene.Group;
 import javafx.geometry.Orientation;
 import javafx.geometry.Insets;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Slider;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font; 
-import javafx.scene.text.FontPosture; 
 import javafx.scene.text.FontWeight; 
 import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 
 /**
  * Elizabeth House
+ * T00738901
  * 03/21/2024
+ * GUI that allows you to use a slider to resize a circle
+ * Radio buttons will allow you to change between colors (3 colors for the circle)
+ * Audio clip will play when you click anywhere on the UI other than the radio buttons or slider
+ * Websites used:
+ * https://www.javatpoint.com/javafx-tutorial
+ * https://www.geeksforgeeks.org/javafx-alert-with-examples/
+ * https://jenkov.com/tutorials/javafx/index.html
  */
 public class ChangingCircle extends Application
 {
     private final double initialSize = 35.0; /* Store initial size of circle */
+    private final AudioClip warningSound = new AudioClip(getClass().getResource("warning.wav").toString());
+    private boolean sliderDragging = false; 
     
-    public void start(Stage stage)
+    public void start(Stage stage) throws Exception
     {
         stage.setTitle("Changing Circle");
 
@@ -92,25 +103,95 @@ public class ChangingCircle extends Application
         r1.setSelected(true);
         slider.setValue(25);
 
-        /* Event Handling */
+        /* Event Handling to switch circle color */
         r1.setOnAction(e -> circle.setFill(javafx.scene.paint.Color.ORANGE));
         r2.setOnAction(e -> circle.setFill(javafx.scene.paint.Color.YELLOW));
         r3.setOnAction(e -> circle.setFill(javafx.scene.paint.Color.BLUE));
         
+        /* Changes the radius on the circle */
         slider.valueProperty().addListener((obs, oldValue, newValue) -> 
         {
             double radius = initialSize + (newValue.doubleValue() / 100 * (initialSize * 2 - initialSize));
             circle.setRadius(radius);
         });
+        
+        
+        /* Checking for pressing and releasing mouse and mouse over for slider */
+        slider.setOnMousePressed(event -> sliderDragging = true);
+        slider.setOnMouseReleased(event -> sliderDragging = false);
+        slider.setOnMouseEntered(event -> 
+        {
+        slider.getProperties().put("mouseOver", true);
+        });
+
+        slider.setOnMouseExited(event -> 
+        {
+        slider.getProperties().put("mouseOver", false);
+        });
+        
 
         /* Scene */
         VBox mainLayout = new VBox();
         mainLayout.setStyle("-fx-background-color: beige;"); 
-        mainLayout.getChildren().addAll(hbox, sliderLayout, bottomLayout); 
+        mainLayout.getChildren().addAll(hbox, sliderLayout, bottomLayout);
+        
         Scene scene = new Scene(mainLayout, 500, 400);
+        scene.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> 
+        {
+            Node target = (Node) event.getTarget();
+            /* Check if the mouse is over the slider so the alert won't go off there */
+            boolean mouseOverSlider = Boolean.TRUE.equals(slider.getProperties().get("mouseOver")); 
+    
+            /* Check if the mouse is in the radio buttons or sliders, if so no alert */
+            if (!(target instanceof RadioButton || target instanceof Slider || sliderDragging ||
+              mouseOverSlider || isSubComponent(target, r1) || isSubComponent(target, r2) || isSubComponent(target, r3))) 
+            {
+                playWarningSound();
+                showAlert("Warning", "Please select the radio buttons or slider only.");
+            }
+        });
+        
         stage.setScene(scene);
         stage.show();
     }
+    
+    /* Plays the warning sound */
+    private void playWarningSound() 
+    {
+        warningSound.play();
+    }
+    
+    /* Warning message */
+    private void showAlert(String title, String message) 
+    {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    
+    /* Checks node components */
+    private boolean isSubComponent(Node target, Node component) 
+    {
+        if (target.equals(component)) 
+        {
+            return true;
+        }
+
+
+        Parent parent = target.getParent();
+        while (parent != null) 
+        {
+            if (parent.equals(component)) 
+            {
+                return true;
+            }
+            parent = parent.getParent();
+        }
+    
+        return false;
+    } 
 
     public static void main(String[] args) 
     {
