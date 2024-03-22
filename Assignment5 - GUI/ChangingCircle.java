@@ -33,7 +33,7 @@ import javafx.scene.Parent;
  */
 public class ChangingCircle extends Application
 {
-    private final double initialSize = 35.0; /* Store initial size of circle */
+    private final double defaultSize = 35; /* Store default size of circle */
     private final AudioClip warningSound = new AudioClip(getClass().getResource("warning.wav").toString());
     private boolean sliderDragging = false; 
     
@@ -55,7 +55,7 @@ public class ChangingCircle extends Application
         bottomText.setFill(Color.RED);
 
         /* Circle */
-        Circle circle = new Circle(initialSize);
+        Circle circle = new Circle(defaultSize);
         Group group = new Group(circle);
         group.setTranslateX(-180); 
         group.setTranslateY(100);
@@ -111,7 +111,17 @@ public class ChangingCircle extends Application
         /* Changes the radius on the circle */
         slider.valueProperty().addListener((obs, oldValue, newValue) -> 
         {
-            double radius = initialSize + (newValue.doubleValue() / 100 * (initialSize * 2 - initialSize));
+            double radius;
+            int sliderValue = newValue.intValue();
+            
+            if (sliderValue >= 25) 
+            {
+                radius = defaultSize + (sliderValue - 25) / 75.0 * defaultSize;
+            } 
+            else 
+            {
+                radius = defaultSize - (25 - sliderValue) / 25.0 * defaultSize;
+            }
             circle.setRadius(radius);
         });
         
