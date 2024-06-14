@@ -40,11 +40,12 @@ def main():
         for code in codes:
             code = code.strip() # Remove any leading/trailing whitespace
 
+            # Check if it's restricted and violates new law
             if is_valid_code(code):
-                valid_codes.append(code)
-                # Check if it's restricted and violates new law
                 if code[9] == 'R' and int(code[3:7]) >= 2000:
                     invalid_restricted_codes.append(code)
+                else:
+                    valid_codes.append(code)
             else:
                 invalid_codes.append(code)
 
