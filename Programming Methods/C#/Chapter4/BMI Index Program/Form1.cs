@@ -29,6 +29,19 @@ namespace BMI_Index_Program
 				{
 					BMI = weight * MULTIPLIER / (Math.Pow(height, 2));
 					bmiTextBox.Text = BMI.ToString("n1");
+
+					if (BMI < 25 && BMI > 18.5)
+					{
+						bmiDescriptionTextBox.Text = "Optimal";
+					}
+					else if (BMI < 18.5)
+					{
+						bmiDescriptionTextBox.Text = "Underweight";
+					}
+					else
+					{
+						bmiDescriptionTextBox.Text = "Overweight";
+					}
 				}
 				else
 				{
@@ -46,6 +59,7 @@ namespace BMI_Index_Program
 			weightTextBox.Text = string.Empty;
 			heightTextBox.Text = string.Empty;
 			bmiTextBox.Text = string.Empty;
+			bmiDescriptionTextBox.Text = string.Empty;
 
 			weightTextBox.Focus();
 		}

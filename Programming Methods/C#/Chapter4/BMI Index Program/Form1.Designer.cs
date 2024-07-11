@@ -38,6 +38,8 @@
 			this.bmiTextBox = new System.Windows.Forms.Label();
 			this.heightTextBox = new System.Windows.Forms.TextBox();
 			this.weightTextBox = new System.Windows.Forms.TextBox();
+			this.bmiDescriptionLabel = new System.Windows.Forms.Label();
+			this.bmiDescriptionTextBox = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// calculatorLabel
@@ -72,7 +74,7 @@
 			// 
 			// calculateButton
 			// 
-			this.calculateButton.Location = new System.Drawing.Point(25, 213);
+			this.calculateButton.Location = new System.Drawing.Point(25, 248);
 			this.calculateButton.Name = "calculateButton";
 			this.calculateButton.Size = new System.Drawing.Size(85, 34);
 			this.calculateButton.TabIndex = 0;
@@ -82,7 +84,7 @@
 			// 
 			// exitButton
 			// 
-			this.exitButton.Location = new System.Drawing.Point(211, 213);
+			this.exitButton.Location = new System.Drawing.Point(209, 248);
 			this.exitButton.Name = "exitButton";
 			this.exitButton.Size = new System.Drawing.Size(89, 34);
 			this.exitButton.TabIndex = 5;
@@ -92,7 +94,7 @@
 			// 
 			// clearButton
 			// 
-			this.clearButton.Location = new System.Drawing.Point(116, 213);
+			this.clearButton.Location = new System.Drawing.Point(116, 248);
 			this.clearButton.Name = "clearButton";
 			this.clearButton.Size = new System.Drawing.Size(87, 34);
 			this.clearButton.TabIndex = 6;
@@ -139,11 +141,33 @@
 			this.weightTextBox.TabIndex = 10;
 			this.weightTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
+			// bmiDescriptionLabel
+			// 
+			this.bmiDescriptionLabel.Font = new System.Drawing.Font("Garamond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.bmiDescriptionLabel.Location = new System.Drawing.Point(21, 196);
+			this.bmiDescriptionLabel.Name = "bmiDescriptionLabel";
+			this.bmiDescriptionLabel.Size = new System.Drawing.Size(98, 23);
+			this.bmiDescriptionLabel.TabIndex = 11;
+			this.bmiDescriptionLabel.Text = "Your BMI is:";
+			this.bmiDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// bmiDescriptionTextBox
+			// 
+			this.bmiDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.bmiDescriptionTextBox.Font = new System.Drawing.Font("Garamond", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.bmiDescriptionTextBox.Location = new System.Drawing.Point(178, 194);
+			this.bmiDescriptionTextBox.Name = "bmiDescriptionTextBox";
+			this.bmiDescriptionTextBox.Size = new System.Drawing.Size(120, 27);
+			this.bmiDescriptionTextBox.TabIndex = 12;
+			this.bmiDescriptionTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// bmiCalculator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(328, 259);
+			this.ClientSize = new System.Drawing.Size(328, 316);
+			this.Controls.Add(this.bmiDescriptionTextBox);
+			this.Controls.Add(this.bmiDescriptionLabel);
 			this.Controls.Add(this.weightTextBox);
 			this.Controls.Add(this.heightTextBox);
 			this.Controls.Add(this.bmiTextBox);
@@ -173,6 +197,8 @@
 		private System.Windows.Forms.Label bmiTextBox;
 		private System.Windows.Forms.TextBox heightTextBox;
 		private System.Windows.Forms.TextBox weightTextBox;
+		private System.Windows.Forms.Label bmiDescriptionLabel;
+		private System.Windows.Forms.Label bmiDescriptionTextBox;
 	}
 }
 
