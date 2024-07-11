@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace My_First_Project.Properties
+namespace Assignment4.Properties
 {
 
 
