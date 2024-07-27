@@ -20,11 +20,11 @@ typedef struct
 
 /* function declarations */
 void open_file(const char* filename, FILE **file);
-void create_record(FILE *file, Record new_record);
-void display_file(FILE *file, Record record);
-void seek_record(FILE *file, Record record);
-void update_file(FILE *file, const char *name, Record new_data);
-void delete_record(FILE *file, const char *name, Record record_to_delete);
+void create_record(FILE *file, Record *new_record);
+void display_file(FILE *file, Record *record);
+void seek_record(FILE *file, Record *record, const char *search_name);
+void update_file(FILE *file, const char *name, Record *new_data);
+void delete_record(FILE *file, const char *name, Record *record_to_delete);
 void close_file(FILE *file);
 void clear_input_buffer();
 
