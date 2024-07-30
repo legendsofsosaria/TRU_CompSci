@@ -1,0 +1,11 @@
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\bin\Debug\Test Average.exe.config
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\bin\Debug\Test Average.exe
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\bin\Debug\Test Average.pdb
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.csproj.AssemblyReference.cache
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.csproj.SuggestedBindingRedirects.cache
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test_Average.Form1.resources
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test_Average.Properties.Resources.resources
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.csproj.GenerateResource.cache
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.csproj.CoreCompileInputs.cache
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.exe
+C:\Users\britt\Desktop\School Stuff\TRU\TRU_CompSci\Programming Methods\C#\Chapter7\Test Average\Test Average\obj\x86\Debug\Test Average.pdb
