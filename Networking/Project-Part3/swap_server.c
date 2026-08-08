@@ -1,5 +1,11 @@
 /*
 *	swap_server.c
+* Citations:
+* Stop and Wait Reference:
+* Reference: Stop-and-Wait Protocol (taken from section 23.2.2 of the 5th edition of the textbook)
+* Checksum References:
+* https://www.rfc-editor.org/info/rfc1071/
+* https://re.factorcode.org/2010/09/internet-checksum.html
 */
 
 #include <stdio.h>
